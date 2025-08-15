@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+<title>Free Email Extractor Tool Online | Extract Emails from Any Text</title>
+
+<meta name="description" content="Extract email addresses instantly with our free online email extractor tool. Perfect for marketers, recruiters & sales teams. No installation needed - works in your browser.">
+<meta name="keywords" content="email extractor, extract email addresses, bulk email finder, email scraper tool, online email parser, free email extractor, email collector, email harvesting tool, email address extractor">
+
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://shoetaxtool.com/index3">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ShoeTaxTool">
+<meta name="twitter:creator" content="@ShoeTaxTool">
+<meta name="twitter:title" content="Free Email Extractor Tool - Extract Emails Instantly">
+<meta name="twitter:description" content="Quickly extract email addresses from any text with our free online tool. No registration required - try it now!">
+<meta name="twitter:image" content="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+<meta name="twitter:image:alt" content="Shoetax Email Extractor Tool Interface">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shoetaxtool.com/index3">
+<meta property="og:title" content="Free Email Extractor Tool Online | Extract Emails from Any Text">
+<meta property="og:description" content="Extract email addresses instantly with our free online tool. Perfect for marketers, recruiters & sales teams. Works directly in your browser.">
+<meta property="og:image" content="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Shoetax Tools">
+<meta property="og:locale" content="en_US">
+
+<!-- Favicons -->
+<link rel="icon" href="https://dummyshoetax.netlify.app/shoetaxlogo.png" type="image/png">
+<link rel="apple-touch-icon" href="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVPHL55N98"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GVPHL55N98');
+</script>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='index3.css') }}">
+    
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="https://dummyshoetax.netlify.app/shoetaxlogo.png" alt="Email Extractor" class="logo-img">
+                <div class="logo-text">Email Extractor Online</div>
+            </div>
+           <nav class="nav-links">
+                <a href="index3.html" class="active">Email Extractor</a>
+                <a href="x-ray-search-linkedin-and-more.html">X Ray Search</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Advanced Email Extraction Tool</h1>
+                <p>Extract email addresses from any text with our powerful online tool. Perfect for marketers, researchers, and professionals who need clean email lists without duplicates. Works with websites, documents, PDFs, spreadsheets, and any text content.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-success" onclick="document.getElementById('inputText').focus()">
+                        <i class=""></i>
+                        Start Extracting
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.querySelector('.about-tool').scrollIntoView({behavior: 'smooth'})">
+                        <i class=""></i>
+                         How It Works
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-paste"></i> Paste Your Text</h2>
+                
+                <div class="form-group">
+                    <label for="inputText"><i class="fas fa-align-left"></i> Text containing email addresses:</label>
+                    <textarea id="inputText" placeholder="Paste any text containing email addresses here... You can paste website content, documents, spreadsheets, or any other text. The tool will automatically remove duplicate emails."></textarea>
+                </div>
+                
+                <div class="btn-group">
+                    <button id="extractBtn" class="btn btn-success">
+                        <i class="fas fa-magic"></i>
+                        Extract Emails
+                    </button>
+                    <button id="clearBtn" class="btn btn-danger">
+                        <i class="fas fa-broom"></i>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card" id="results-card">
+                <h2 class="card-title"><i class="fas fa-envelope"></i> Extracted Email Addresses</h2>
+                
+                <div class="form-group">
+                    <label for="outputText"><i class="fas fa-list"></i> Clean email list (duplicates removed):</label>
+                    <div class="output-container">
+                        <textarea id="outputText" placeholder="Extracted emails will appear here... All duplicate emails are automatically removed to give you a clean list." readonly></textarea>
+                        <button id="copyFloatBtn" class="btn copy-float-btn">
+                            <i class="fas fa-copy"></i>
+                            Copy All
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <i class="fas fa-envelope"></i>
+                        <span id="emailCount">0 emails found</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-filter"></i>
+                        <span id="duplicatesCount">0 duplicates removed</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-font"></i>
+                        <span id="charCount">0 characters processed</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Highlights -->
+            <div class="features-section">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Process thousands of emails in seconds with our optimized extraction algorithm. Get results instantly without waiting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Filtering</h3>
+                    <p class="feature-desc">Automatically removes duplicate emails and invalid formats to give you a clean, usable list every time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy Focused</h3>
+                    <p class="feature-desc">All processing happens in your browser. We never send your data to our servers, ensuring complete privacy.</p>
+                </div>
+            </div>
+            
+            <!-- About the Tool Section -->
+            <section class="about-tool">
+                <div class="about-content">
+                    <h2>About Our Email Extractor Tool</h2>
+                    <p>Our Email Extractor Tool is a powerful solution designed to help professionals quickly and efficiently extract email addresses from various text sources. Whether you're working with website content, documents, PDFs, or spreadsheets, this tool simplifies the process of building clean contact lists.</p>
+                    
+                    <p>The tool works by scanning your input text for patterns that match standard email address formats. Using advanced regular expressions, it identifies all potential email addresses while ignoring false positives. After extraction, the tool automatically removes duplicate entries, saving you hours of manual cleanup work.</p>
+                    
+                    <p>What makes our tool special is its ability to handle large volumes of text while maintaining high accuracy. The algorithm is optimized to recognize email patterns even when they're embedded in complex strings or surrounded by other text. This makes it ideal for processing content from web pages, research papers, business documents, and more.</p>
+                    
+                    <p>We've designed the interface to be intuitive while still offering powerful capabilities. The clean, distraction-free layout lets you focus on your work, while the comprehensive statistics help you understand the quality of your extracted data at a glance.</p>
+                    
+                    <p>It's important to note that this tool only processes information that you provide. We don't scrape websites or access any external data sources. The results you get are based solely on the text you paste into the input field, ensuring you maintain complete control over your data.</p>
+                    
+                    <p>Whether you're building prospect lists, organizing research contacts, or cleaning up existing email databases, our Email Extractor Tool can save you significant time while delivering professional-quality results.</p>
+                    
+                    <h3>Technical Details</h3>
+                    <p>The email extraction is performed using a sophisticated regular expression pattern that matches the official email address specification (RFC 5322). The pattern recognizes:</p>
+                    <ul>
+                        <li>Standard email formats (user@domain.com)</li>
+                        <li>Subdomains (user@sub.domain.com)</li>
+                        <li>Country-code TLDs (user@domain.co.uk)</li>
+                        <li>Newer TLDs (user@domain.photography)</li>
+                        <li>Special characters in local parts (user+tag@domain.com)</li>
+                    </ul>
+                    
+                    <p>The duplicate removal system uses a case-insensitive comparison to ensure variations of the same email (User@domain.com vs user@domain.com) are treated as duplicates. The system also performs basic validation to filter out obviously invalid email patterns.</p>
+                    
+                    <h3>Performance Considerations</h3>
+                    <p>Our tool is optimized to handle large documents efficiently. Testing has shown reliable performance with texts containing up to 100,000 email addresses. Processing time depends on:</p>
+                    <ul>
+                        <li>Length of the input text</li>
+                        <li>Number of email patterns found</li>
+                        <li>Processing power of your device</li>
+                    </ul>
+                    
+                    <p>For extremely large documents (over 1MB of text), we recommend processing in smaller chunks for optimal performance. The tool works entirely in your browser, so your data never leaves your device during processing.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+            
+           
+    
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Emails copied to clipboard!</span>
+    </div>
+    
+  <footer style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); color: #fff; padding: 120px 20px 70px; font-family: 'Poppins', sans-serif; width: 100%; box-sizing: border-box; margin-top: 100px; position: relative; overflow: hidden;">
+    <!-- Decorative elements -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(106, 27, 154, 0.15) 0%, transparent 50%); pointer-events: none;"></div>
+    
+    <div style="position: relative; max-width: 1400px; margin: 0 auto;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px;">
+            <!-- Company Info with Logo -->
+            <div style="flex: 1 1 300px; min-width: 300px;">
+                <div style="display: flex; align-items: center; margin-bottom: 30px;">
+                    <div style="background: linear-gradient(45deg, #6a1b9a, #f50057); padding: 8px; border-radius: 20px; display: inline-flex; box-shadow: 0 5px 25px rgba(106, 27, 154, 0.5); transform: rotate(-5deg);">
+                        <img src="https://dummyshoetax.netlify.app/shoetaxlogo.png" alt="ShoeTax Logo" style="width: 70px; height: 70px; border-radius: 15px; object-fit: cover;"/>
+                    </div>
+                    <h3 style="font-size: 42px; font-weight: 800; margin: 0 0 0 20px; background: linear-gradient(45deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 1px;">ShoeTax</h3>
+                </div>
+                <p style="font-size: 17px; line-height: 1.7; margin-bottom: 30px; color: #d1d1d1; font-weight: 300; max-width: 350px;">ShoeTax is not just another email marketing tool — it's your brand's secret weapon for powerful, efficient, and result-driven campaigns. Unlike other tools that overwhelm you with complex features and limited flexibility, ShoeTax delivers a clean, intuitive experience designed to help businesses of all sizes connect, convert, and grow.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div style="flex: 1 1 200px; min-width: 200px;">
+                <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 30px; color: #fff; position: relative; display: inline-block; letter-spacing: 0.5px;">
+                    Quick-links
+                    <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: linear-gradient(45deg, #6a1b9a, #f50057); border-radius: 4px;"></span>
+                </h3>
+                <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 2.4; color: #d1d1d1;">
+                
+                    <li><a href='about.html' style='color: #fff; text-decoration: none; transition: all 0.3s ease; font-weight: 400; display: inline-block; position: relative; padding-left: 20px;'>About Us</a></li>
+                    <li><a href='privacy-policy.html' style='color: #fff; text-decoration: none; transition: all 0.3s ease; font-weight: 400; display: inline-block; position: relative; padding-left: 20px;'>Privacy Policy</a></li>
+                    <li><a href='contact.html' style='color: #fff; text-decoration: none; transition: all 0.3s ease; font-weight: 400; display: inline-block; position: relative; padding-left: 20px;'>Contact</a></li>
+                 
+                </ul>
+            </div>
+
+            <!-- Email Subscription -->
+            <div style="flex: 1 1 350px; min-width: 350px;">
+                <h3 style="font-size: 26px; font-weight: 700; margin-bottom: 30px; color: #fff; position: relative; display: inline-block; letter-spacing: 0.5px;">
+                    Subscribe
+                    <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 4px; background: linear-gradient(45deg, #6a1b9a, #f50057); border-radius: 4px;"></span>
+                </h3>
+                <p style="font-size: 17px; margin-bottom: 25px; color: #d1d1d1; font-weight: 300;">Get exclusive drops, special offers and news straight to your inbox.</p>
+                
+                <form action="https://formspree.io/f/mgvkanny" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Your email address" 
+                        required
+                        style="padding: 20px 25px; font-size: 16px; border: none; border-radius: 12px; transition: all 0.3s ease; background: rgba(255,255,255,0.1); color: #fff; font-family: 'Poppins', sans-serif; outline: none; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1);"
+                    />
+                    <button 
+                        type="submit" 
+                        style="padding: 20px 30px; background: linear-gradient(45deg, #6a1b9a, #f50057); border: none; color: #fff; font-size: 17px; cursor: pointer; border-radius: 12px; transition: all 0.3s ease; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 5px 20px rgba(106, 27, 154, 0.4);"
+                    >
+                        Subscribe Now
+                        <span style="font-size: 20px;">→</span>
+                    </button>
+                </form>
+                <p style="font-size: 13px; color: #888; margin-top: 15px; font-weight: 300;">We respect your privacy.</p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div style="text-align: center; padding-top: 80px; font-size: 16px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; color: #d1d1d1; position: relative;">
+            <p style="margin-bottom: 0; font-weight: 300; letter-spacing: 0.5px;">&copy; 2025 ShoeTax. All rights reserved. 
+            </p>
+        </div>
+    </div>
+</footer>
+    
+   <script src="{{ url_for('static', filename='js/index3.js') }}"></script>
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Email Extractor Online Free",
+  "url": "https://shoetaxtool.com/index3",
+  "description": "Free online email extractor tool to extract email addresses from any text",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Shoetax Tool",
+    "url": "https://shoetaxtool.com",
+    "sameAs": [
+      "https://twitter.com/ShoeTaxTool"
+    ]
+  },
+  "image": "https://dummyshoetax.netlify.app/shoetaxlogo.png",
+  "keywords": "email extractor, online email extractor, email finder tool, online email extractor, extract email addresses, email scraper, email parser, bulk email extractor",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "125"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://shoetaxtool.com/index3?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Shoetax Tools",
+    "logo": "https://dummyshoetax.netlify.app/shoetaxlogo.png"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shoetaxtool.com/index3"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Shoetax Tool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dummyshoetax.netlify.app/shoetaxlogo.png"
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>X Ray Search Linkedin & More Online Tool</title>
+
+       <meta name="description" content="Free LinkedIn X-Ray Search Tool: Find profiles by company, job title, or location. Perfect for recruiters & sales prospecting. No login required.">
+         <meta name="keywords" content="linkedin xray search, linkedin boolean search, find employees on linkedin, linkedin recruiter tool, linkedin advanced search operator">
+
+                <meta name="robots" content="index,follow">
+                <link rel="canonical" href="https://www.shoetaxtool.com/x-ray-search-linkedin-and-more">
+                <meta name="twitter:description" content="Free LinkedIn X-Ray Search Tool: Find profiles by company, job title, or location. Perfect for recruiters & sales prospecting. No login required.">
+        <meta name="twitter:title" content="X Ray Search Linkedin & More Online Tool" />
+        <meta name="twitter:site" content="X Ray Search Linkedin & More Online Tool">
+        <meta name="twitter:image" content="https://dummyshoetax.netlify.app/shoetaxlogo.png">
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:site_name" content="X Ray Search Linkedin & More Online Tool" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://shoetaxtool.com/x-ray-search-linkedin-and-more" />
+        <meta property="og:title" content="X Ray Search Linkedin & More Online Tool" />
+        <meta property="og:image" content="https://dummyshoetax.netlify.app/shoetaxlogo.png" />
+        <meta property="og:description" content="Free LinkedIn X-Ray Search Tool: Find profiles by company, job title, or location. Perfect for recruiters & sales prospecting. No login required." />
+       
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVPHL55N98"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GVPHL55N98');
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="{{ url_for('static', filename='xray.css') }}">
+    <link rel="icon" href="https://dummyshoetax.netlify.app/shoetaxlogo.png" type="image/x-icon">
+    
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="https://dummyshoetax.netlify.app/shoetaxlogo.png" alt="x ray search" class="logo-img">
+                <div class="logo-text">X-Ray Search</div>
+            </div>
+            <nav class="nav-links">
+                <a href="x-ray-search-linkedin-&-more.html" class="active">X-Ray Search</a>
+                <a href="index3.html">Email Extractor</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Advanced X-Ray Search Tool</h1>
+                <p>Find professional contacts on LinkedIn, Twitter, Facebook and more with our powerful search tool. No sign-up required, completely free, and packed with advanced features to help recruiters, marketers, and researchers find exactly who they're looking for.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-success" onclick="document.getElementById('keyword').focus()">
+                        <i class="fas fa-rocket" style="margin-right: 10px;"></i>
+                        Start Searching
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.querySelector('.faq-section').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                        How It Works
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-search"></i> Select Platform</h2>
+                
+                <div class="platform-selector">
+                    <div class="platform-btn linkedin active" data-platform="site:linkedin.com/in">
+                        <i class="fab fa-linkedin platform-icon"></i>
+                        <span class="platform-name">LinkedIn</span>
+                    </div>
+                    <div class="platform-btn twitter" data-platform="site:twitter.com">
+                        <i class="fab fa-twitter platform-icon"></i>
+                        <span class="platform-name">Twitter</span>
+                    </div>
+                    <div class="platform-btn facebook" data-platform="site:facebook.com">
+                        <i class="fab fa-facebook platform-icon"></i>
+                        <span class="platform-name">Facebook</span>
+                    </div>
+                    <div class="platform-btn instagram" data-platform="site:instagram.com">
+                        <i class="fab fa-instagram platform-icon"></i>
+                        <span class="platform-name">Instagram</span>
+                    </div>
+                    <div class="platform-btn youtube" data-platform="site:youtube.com">
+                        <i class="fab fa-youtube platform-icon"></i>
+                        <span class="platform-name">YouTube</span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="keyword"><i class="fas fa-briefcase" style="margin-right: 8px; color: var(--primary);"></i>Service/Job/Title</label>
+                        <input type="text" id="keyword" placeholder="e.g., recruiter, marketing manager, developer">
+                    </div>
+                    <div class="form-group">
+                        <label for="location"><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--primary);"></i>Location</label>
+                        <input type="text" id="location" placeholder="e.g., New York, USA, London">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email-domain"><i class="fas fa-envelope" style="margin-right: 8px; color: var(--primary);"></i>Email Domain</label>
+                        <input type="text" id="email-domain" placeholder="company.com (without @)">
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-terms"><i class="fas fa-plus-circle" style="margin-right: 8px; color: var(--primary);"></i>Additional Terms/Company</label>
+                        <input type="text" id="additional-terms" placeholder="Optional extra keywords">
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-success" onclick="generateDork()">
+                        <i class="fas fa-search-plus" style="margin-right: 10px;"></i>
+                        Generate Search Query
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card" id="query-output">
+                <h2 class="card-title"><i class="fas fa-code"></i> Generated Search Query</h2>
+                <div class="form-group">
+                    <textarea id="generated-dork" readonly placeholder="Your generated search query will appear here..."></textarea>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn" onclick="copyDork()">
+                        <i class="fas fa-copy" style="margin-right: 10px;"></i>
+                        Copy Query
+                    </button>
+                    <button class="btn btn-secondary" onclick="searchGoogle()">
+                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i>
+                        Search Google
+                    </button>
+                    <button class="btn btn-danger" onclick="clearDork()">
+                        <i class="fas fa-trash" style="margin-right: 10px;"></i>
+                        Clear
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Feature Highlights -->
+            <div class="features-section">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Generate precise search queries in seconds that would take hours to craft manually. Our tool does the heavy lifting so you can focus on results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="feature-title">Advanced Filters</h3>
+                    <p class="feature-desc">Narrow down your search with location, job title, company domain and more to find exactly who you're looking for.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy Focused</h3>
+                    <p class="feature-desc">We only search for publicly available information. No scraping, no hacking - just smart search techniques anyone can use.</p>
+                </div>
+            </div>
+            
+            <!-- About the Tool Section -->
+            <section class="about-tool">
+                <div class="about-content">
+                    <h2>About Our X-Ray Search Tool</h2>
+                    <p>Our X-Ray Search Tool is a powerful solution designed to help professionals find contact information across various social media platforms and websites. Unlike traditional search methods that often yield irrelevant results, our tool generates precise Google search queries (known as "dorks") that target specific platforms and criteria.</p>
+                    
+                    <p>The tool works by leveraging Google's advanced search operators to filter through publicly available information. When you enter parameters like job title, location, or company domain, the tool constructs a search query that pinpoints profiles containing that exact information. This technique is particularly valuable for recruiters, sales professionals, marketers, and researchers who need to find specific types of people.</p>
+                    
+                    <p>What makes our tool special is its ability to combine multiple search parameters into a single, optimized query. For example, you can search for "marketing managers in Chicago who work at companies with a specific domain" with just a few clicks. The tool automatically adds the necessary search operators and structures the query for maximum effectiveness.</p>
+                    
+                    <p>We've designed the interface to be intuitive while still offering powerful capabilities. The platform selector lets you target LinkedIn, Twitter, Facebook, Instagram, or YouTube with one click. Additional fields let you refine your search further, and the generated query can be copied or searched directly with Google.</p>
+                    
+                    <p>It's important to note that this tool only finds information that is already publicly available. We don't scrape data or bypass any platform restrictions. The results you get are the same as what you'd find manually searching Google, but with much greater efficiency and precision.</p>
+                    
+                    <p>Whether you're building prospect lists, searching for job candidates, conducting market research, or trying to reconnect with old colleagues, our X-Ray Search Tool can save you hours of manual searching while delivering better results.</p>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How does this contact finder tool work?</div>
+                    <div class="faq-answer">
+                        Our tool generates advanced Google search queries (called "dorks") that help you find professional contact information across social media platforms and websites. These queries search for publicly available information using specific search operators and keywords you provide. The tool combines your inputs with platform-specific search parameters to create highly targeted queries that return more relevant results than standard searches.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is this tool legal to use?</div>
+                    <div class="faq-answer">
+                        Yes, the tool only helps you find information that is already publicly available on the internet. However, how you use this information may be subject to various laws (like GDPR, CCPA) depending on your location and purpose. Always use contact information ethically and in compliance with applicable laws. We recommend reviewing the terms of service for each platform you're searching and being transparent about how you obtained contact information when reaching out to people.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Why aren't I getting many results?</div>
+                    <div class="faq-answer">
+                        Try these tips for better results:
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Use more specific job titles or keywords (e.g., "Digital Marketing Manager" instead of just "Marketing")</li>
+                            <li>Include a location to narrow results (especially for common names)</li>
+                            <li>Try different combinations of search terms</li>
+                            <li>Verify you're searching the right platform for your target audience</li>
+                            <li>For LinkedIn, try variations of job titles that might appear in profiles</li>
+                            <li>Remove some filters if your search is too restrictive</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I save my search queries?</div>
+                    <div class="faq-answer">
+                        Currently, the tool doesn't have a built-in save feature, but you can copy your generated queries and save them in a document or note-taking app for future reference. We're working on adding account features with save functionality in a future update. For now, we recommend organizing your successful queries in a spreadsheet with notes about when and how you used them for future reference.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How accurate are the email addresses found?</div>
+                    <div class="faq-answer">
+                        The accuracy depends on the source of the information. When searching for email addresses, our tool looks for patterns like "email@domain.com" or "mail:domain.com" in publicly available content. However, not all results will be current or correct. We recommend verifying any email addresses you find using free tools like MailTester or Hunter's email verifier before using them for outreach. For best results, combine email searches with other identifiers like name and company to ensure you're contacting the right person.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between this and LinkedIn's built-in search?</div>
+                    <div class="faq-answer">
+                        LinkedIn's native search has limitations unless you pay for premium features. Our tool creates searches that can find profiles LinkedIn's algorithm might hide or deprioritize. It also allows you to search for specific content within profiles (like email addresses) that LinkedIn's search doesn't support. Additionally, our tool can search across multiple platforms simultaneously, while LinkedIn only searches its own database.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+     <footer>
+        <div class="bg-radial"></div>
+        <div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-bg">
+                            <img src="https://dummyshoetax.netlify.app/shoetaxlogo.png" alt="ShoeTax Logo" class="logo-img"/>
+                        </div>
+                        <h3>ShoeTax</h3>
+                    </div>
+                    <p>ShoeTax is not just another email marketing tool — it's your brand's secret weapon for powerful, efficient, and result-driven campaigns. Unlike other tools that overwhelm you with complex features and limited flexibility, ShoeTax delivers a clean, intuitive experience designed to help businesses of all sizes connect, convert, and grow.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="section-title">Quick-links<span class="title-underline"></span></h3>
+                    <ul>
+                      
+                        <li><a href='about.html'>About Us</a></li>
+                        <li><a href='privacy-policy.html'>Privacy Policy</a></li>
+                        <li><a href='contact.html'>Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="section-title">Subscribe<span class="title-underline"></span></h3>
+                    <p>Get exclusive drops, special offers and news straight to your inbox.</p>
+                    
+                    <form action="https://formspree.io/f/mgvkanny" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="email" name="email" placeholder="Your email address" required/>
+                        <button type="submit">
+                            Subscribe Now
+                            <span style="font-size: 20px;">→</span>
+                        </button>
+                    </form>
+                    <p style="font-size: 13px; color: #888; margin-top: 15px; font-weight: 300;">We respect your privacy.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="margin-bottom: 0; font-weight: 300; letter-spacing: 0.5px;">&copy; 2025 ShoeTax. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="{{ url_for('static', filename='js/xray.js') }}"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "X Ray Search Linkedin & More Online Tool",
+  "description": "Free LinkedIn X-Ray Search Tool: Find profiles by company, job title, or location. Perfect for recruiters & sales prospecting. No login required.",
+  "url": "https://www.shoetaxtool.com/x-ray-search-linkedin-and-more",
+  "keywords": ["linkedin xray search", "linkedin boolean search", "find employees on linkedin", "linkedin recruiter tool", "linkedin advanced search operator"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShoeTax Tool",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dummyshoetax.netlify.app/shoetaxlogo.png"
+    }
+  }
+}
+</script>
+</body>
+</html>
