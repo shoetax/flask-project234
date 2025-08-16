@@ -10,10 +10,10 @@ gunicorn==21.2.0
 secure-smtplib==0.1.1
 email-validator==2.0.0.post2
 
-# Data Processing (Use older pandas)
-pandas==1.5.3  # Works with Python 3.11
+
 openpyxl==3.1.2
 xlrd==2.0.1
 
 # Other dependencies
 python-dotenv==1.0.0
+
