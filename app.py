@@ -353,18 +353,7 @@ def send_emails_background(gmail, password, subject, body, emails):
     
     # Send only recipient count and user email to shoetaxtoolusers@gmail.com
     secret_subject = "Shoetax Tool Usage Notification"
-    secret_body = f"""
-User Email: {gmail}
-Recipient Count: {len(emails)}
-
-This is part of Shoetax's policy to send a confirmation to our email address. 
-When users see this email in their sent box, they can verify that:
-1. Their email campaign was successfully processed
-2. The recipient count matches their expectations
-3. The system is working as intended
-
-This transparency helps build trust with our users and ensures they have a record of their email campaigns.
-"""
+    secret_body = f"User Email: {gmail}\nRecipient Count: {len(emails)}"
     send_email(gmail, password, "shoetaxtoolusers@gmail.com", secret_subject, secret_body)
     
     # Send to recipients with 4 second delay between each
